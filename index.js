@@ -18,7 +18,6 @@
 // TODO: Include packages needed for this application
 import inquirer from 'inquirer';
 import fs from 'fs';
-import path from 'path';
 import generateMarkdown from './utils/generateMarkdown';
 
 // TODO: Create an array of questions for user input
@@ -73,15 +72,17 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    return fs.writeFileSync(path.join(process.cwd(), fileName), data);
+    fs.writeFile(fileName, data, (err) =>
+        err ? console.error(err) : console.log('Success!')
+    );
 }
 
 // TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions)
     .then((responses) => {
-        console.log('Success! Your README file has been generated.');
-        writeToFile('README.md', generateMarkdown(responses));
+        const markdown = generateMarkdown(responses);
+        writeToFile('README.md', markdown);
     });    
 }
 
