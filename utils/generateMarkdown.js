@@ -45,6 +45,32 @@ ${data.description}
 * [Tests](#tests)
 * [Questions](#questions)
 ${renderLicenseLink(data.license)}
+
+## Installation
+
+${data.installation}
+
+## Usage
+
+${data.usage}
+
+## Contributing
+
+${data.contributing}
+
+## Tests
+
+${data.tests}
+
+${renderLicenseSection(data.license)}
+
+## Questions
+
+For any questions, please contact me with the information below:
+
+GitHub: [${data.github}](https://github.com/${data.github})
+
+Email: ${data.email}
 `;
 }
 
